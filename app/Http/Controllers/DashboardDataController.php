@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DashboardData;
 use Illuminate\Http\Request;
+use App\Models\DashboardData;
 
 class DashboardDataController extends Controller
 {
@@ -12,7 +12,8 @@ class DashboardDataController extends Controller
      */
     public function index()
     {
-        //
+        $artItems=DashboardData::all();
+        return view('dashboard_data.dashboard',compact("artItems"));
     }
 
     /**

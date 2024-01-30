@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class DashboardData extends Model
 {
     use HasFactory;
+    protected $fillable = 
+    [
+      'title',
+      'description',
+      'img',
+      'author',
+    ];
 }
