@@ -4,7 +4,7 @@
  <div class="container-fluid mt-4">
  	<div class="row justify-content-center">
  		<div class="col-md-8">
- 			<div class="card">
+ 			<div class="card  bg-dark text-light mb-5">
  				<div class="card-header">{{ __('Dashboard') }}</div>
 
  				<div class="card-body">
@@ -20,12 +20,10 @@
  		</div>
  	</div>
  </div>
- <div class="container-sm">
-     @foreach($artItems as $artItem)
-    <div class="row">
-        <h3><em>{{ $artItem->title }}</em></h3>
-    </div>
-    <div class="card" style="width: 18rem;">
+ <div class="container-sm d-flex">
+     @foreach($artItems as $artItem)   
+    <div class="card bg-dark text-light" style="width: 18rem;">
+        <div class="card-title"><h3><em>{{ $artItem->title }}</em></h3></div>
         <img src="{{ $artItem->img }}" class="card-img-top" alt="...">
         <div class="card-body">
           <p> {{ $artItem->description }}</p>
