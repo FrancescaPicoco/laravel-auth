@@ -21,7 +21,7 @@ return [
     [
         "title" => "Disturbing Melancholy",
         "description" => "Le opere di Victoria Francés sono ispirate da atmosfere gotiche/romantiche: spesso nelle sue illustrazioni è possibile osservare fantasmi e spiriti di donne in lunghi abiti. Trae ispirazione da Edgar Allan Poe, Anne Rice e Howard Phillips Lovecraft, e da Brian Froud e Arthur Rackham per quanto riguarda le illustrazioni.",
-        "img" => "https://www.teahub.io/photos/full/257-2573096_vfw-victoria-frances-wallpaper-hd.jpg",
+        "img" => "https://m.media-amazon.com/images/I/61GxRG1ScqL.jpg",
         "author" => "Victoria Francés",
     ],
 ];
