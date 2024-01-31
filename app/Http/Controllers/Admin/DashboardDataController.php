@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Models\DashboardData;
 use App\Http\Controllers\Controller; 
+use App\Models\DashboardData;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class DashboardDataController extends Controller
 {
@@ -29,9 +31,11 @@ class DashboardDataController extends Controller
         ])->validate();
         return validated;
     }
+    
     public function index()
     {
-    
+        $artItems= DashboardData::all();
+        return view('admin.artists.index',compact("artItems"));
     }
 
     /**
@@ -39,7 +43,7 @@ class DashboardDataController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.artists.create");
     }
 
     /**
@@ -47,7 +51,17 @@ class DashboardDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //$valid_data=$this->validation($data); questa riga richiama il metodo della f.validation e sost stringa 60 to 83
+        $newArtist = new DashboardData();
+        //$newArtist->fill($valid_data); prende tutti i dati dalla richiesta e li usa per popolare ma prima si validano i dati
+        $newArtist->title =$data['title'];
+        $newArtist->description=$data['description'];
+        $newArtist->img = $data['img'];
+        $newArtist->author = $data['author'];
+        $newArtist->save();
+
+        return redirect()->route('admin.artists.show', $newArtist->id);
     }
 
     /**
@@ -55,13 +69,7 @@ class DashboardDataController extends Controller
      */
     public function show(DashboardData $dashboardData)
     {
-        $data = $request->all();
-        $valid_data=$this->validation($data); //questa riga richiama il metodo della f.validation e sost stringa 60 to 83
-        $newArtist = new DashboardData();
-        $newArtist->fill($valid_data); //prende tutti i dati dalla richiesta e li usa per popolare ma prima si validano i dati
-        $newArtist->save();
-
-        return redirect()->route('dashboard.admin.show', $newArtist->id);
+        return view('admin.show', compact("dashboardData"));
     }
 
     /**
@@ -69,15 +77,19 @@ class DashboardDataController extends Controller
      */
     public function edit(DashboardData $dashboardData)
     {
-        //
+        return view('admin.artists.edit', compact("dashboardData"));
     }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, DashboardData $dashboardData)
     {
-        //
+        // $data = $request->except('_token' , '_method');
+        // $valid_data=$this->validation($data);
+        // $dashboardData->update($valid_data);    
+
+        // return redirect()->route('admin.artists.show', $dashboardData->id);
+        return('dati ignorati');
     }
 
     /**

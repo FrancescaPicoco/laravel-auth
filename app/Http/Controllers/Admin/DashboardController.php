@@ -8,8 +8,8 @@ use App\Models\DashboardData;
 class DashboardController extends Controller
 {
     public function index() {
-        $artItems= DashboardData::all();
-        // return view('admin.dashboard',compact("artItems"));
-        return view('admin.dashboard',compact("artItems"));
+        //$artItems= DashboardData::all();
+        //return view('admin.dashboard',compact("artItems"));
+        return view('admin.dashboard');
     }
 }

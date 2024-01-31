@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PostController; //
+use App\Http\Controllers\Admin\DashboardDataController;
+
+
 
 
 /*
@@ -26,7 +28,7 @@ Route::middleware(['auth'])
 ->group(function () {
 
 	Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-	Route::resource('arts', PostController::class); //metodo di risorsa generico
+	Route::resource('artists', DashboardDataController::class); //metodo di risorsa generico
 
 });
 
