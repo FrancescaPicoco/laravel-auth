@@ -12,8 +12,8 @@ class DashboardDataController extends Controller
      */
     public function index()
     {
-        $artItems=DashboardData::all();
-        return view('dashboard_data.dashboard',compact("artItems"));
+        //$artItems=DashboardData::all();
+        return view('admin.dashboard',compact("artItems"));
     }
 
     /**

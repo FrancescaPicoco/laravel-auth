@@ -21,17 +21,17 @@
  	</div>
  </div>
  <div class="container-sm">
-    @foreach($artItems as $artItem)
+     @foreach($artItems as $artItem)
     <div class="row">
         <h3><em>{{ $artItem->title }}</em></h3>
     </div>
-    {{-- <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem;">
         <img src="{{ $artItem->img }}" class="card-img-top" alt="...">
         <div class="card-body">
           <p> {{ $artItem->description }}</p>
           <p> {{ $artItem->author }}</p>
         </div>
-    </div> --}}
+    </div>
     @endforeach
  </div>
  @endsection
