@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container-sm d-flex flex-wrap">
+<div class="container-sm d-flex flex-wrap p-5">
     @foreach($artItems as $artItem)   
    <div class="bg-dark text-light mycard">
        <div class="card-title"><h3><em class="grey">{{ $artItem->title }}</em></h3></div>
