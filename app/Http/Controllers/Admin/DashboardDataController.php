@@ -52,13 +52,13 @@ class DashboardDataController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        //$valid_data=$this->validation($data); questa riga richiama il metodo della f.validation e sost stringa 60 to 83
+        $valid_data=$this->validation($data); //questa riga richiama il metodo della f.validation e sost stringa 60 to 83
         $newArtist = new DashboardData();
-        //$newArtist->fill($valid_data); prende tutti i dati dalla richiesta e li usa per popolare ma prima si validano i dati
-        $newArtist->title =$data['title'];
-        $newArtist->description=$data['description'];
-        $newArtist->img = $data['img'];
-        $newArtist->author = $data['author'];
+        $newArtist->fill($valid_data); //prende tutti i dati dalla richiesta e li usa per popolare ma prima si validano i dati
+        // $newArtist->title =$data['title'];          
+        // $newArtist->description=$data['description'];   //da 58 a 61 canc
+        // $newArtist->img = $data['img'];
+        // $newArtist->author = $data['author'];
         $newArtist->save();
 
         return redirect()->route('admin.artists.show', $newArtist->id);
@@ -70,7 +70,7 @@ class DashboardDataController extends Controller
     public function show(string $id)
     {    
         $artItems = DashboardData::find($id);
-        return view('admin.show', compact("artItems"));
+        return view('admin.artists.show', compact("artItems"));
     }
 
     /**
