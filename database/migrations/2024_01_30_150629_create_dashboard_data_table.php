@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dashboard_data', function (Blueprint $table) {
+        Schema::create('artists', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
-            $table->text('description');
-            $table->string('img');
-            $table->string('author', 50);
+            $table->string("title", 50);
+            $table->text("description");
+            $table->string("img");
+            $table->string("author", 50);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dashboard_data');
+        Schema::dropIfExists('artists');
     }
 };

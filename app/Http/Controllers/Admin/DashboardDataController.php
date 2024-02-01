@@ -29,7 +29,7 @@ class DashboardDataController extends Controller
             'author.required'=>'Requisito Necessario',
             'author.max'=>'Numero caratteri consentiti superato',
         ])->validate();
-        return validated;
+        return $validated;
     }
     
     public function index()
@@ -67,29 +67,31 @@ class DashboardDataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DashboardData $dashboardData)
-    {
-        return view('admin.show', compact("dashboardData"));
+    public function show(string $id)
+    {    
+        $artItems = DashboardData::find($id);
+        return view('admin.show', compact("artItems"));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DashboardData $dashboardData)
+    public function edit(string $id)
     {
-        return view('admin.artists.edit', compact("dashboardData"));
+        $artItems = DashboardData::find($id);
+        return view('admin.artists.edit', compact("artItems"));
     }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DashboardData $dashboardData)
+    public function update(Request $request, string $id)
     {
-        // $data = $request->except('_token' , '_method');
-        // $valid_data=$this->validation($data);
-        // $dashboardData->update($valid_data);    
-
-        // return redirect()->route('admin.artists.show', $dashboardData->id);
-        return('dati ignorati');
+        $data = $request->except('_token' , '_method');
+        $valid_data=$this->validation($data);
+        $dashboardData = DashboardData::find($id);
+        $dashboardData->update($valid_data);  
+        return redirect()->route('admin.artists.index');
+        // return('dati ignorati');
     }
 
     /**

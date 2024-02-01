@@ -20,6 +20,7 @@ class DashboardDataSeeder extends Seeder
             $new_art->description=$single_art['description'];
             $new_art->img=$single_art['img'];
             $new_art->author=$single_art['author'];
+            //$new_art->fill($single_art);
             $new_art->save();
         }
     }
